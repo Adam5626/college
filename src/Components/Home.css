@@ -14,8 +14,9 @@ body{
     display:flex;
     flex-direction:row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 7%;
+    
 }
 
 #home_content #home_content_left{
@@ -23,7 +24,8 @@ body{
     display:flex;
     flex-direction: column;
     justify-content:center;
-    padding-left: 5%;
+    /* align-items: center; */
+    /* padding-left: 5%; */
 }
 
 #home_content_left p{
@@ -32,6 +34,7 @@ body{
     font-weight: 300;
     line-height: 120%;
     width:80%;
+    /* align-self: center; */
 }
 
 #home_content_left button{
@@ -51,7 +54,7 @@ body{
 
 #home_content_right{
     width:30%;
-    padding-right: 5%;
+    /* padding-right: 5%; */
 }
 
 #home_content_right img{
@@ -63,7 +66,7 @@ body{
 
     #home_content{
         flex-direction: column-reverse;
-        margin-top: 20%;
+        margin-top: 15vh;
     }
 
     #home_content #home_content_left{

@@ -7,17 +7,17 @@ function Navbar()
     const navigation = useNavigate();
     const [menuStatus, setMenuStatus] = useState(false);
     const handle_menu = ()=>{
-        const menu = document.getElementById("menu_card");
-        if(menuStatus === false)
-        {
-            menu.style.transform = "translateX(0)";
-            setMenuStatus(true);
-        }
-        else{
-            menu.style.transform = "translateX(1000px)";
-            setMenuStatus(false);
-        }
-
+        // const menu = document.getElementById("menu_card");
+        // if(menuStatus === false)
+        // {
+        //     menu.style.transform = "translateX(0)";
+        //     setMenuStatus(true);
+        // }
+        // else{
+        //     menu.style.transform = "translateX(1000px)";
+        //     setMenuStatus(false);
+        // }
+        setMenuStatus(!menuStatus);
 
     }
     return(
@@ -38,13 +38,17 @@ function Navbar()
                 <div id="l2"></div>
                 <div id="l3"></div>
             </div>
-        </div>
 
-        <div id="menu_card">
+            
+        </div>
+        { menuStatus && (
+            <div id="menu_card">
             <p onClick = {()=>{navigation("/login")}}>Login</p>
             <p>Signup</p>
             <p>Provider</p>
         </div>
+        )}
+        
         </>
     );
 }
