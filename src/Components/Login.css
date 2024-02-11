@@ -1,0 +1,84 @@
+.login-content{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login-content p{
+    margin:0;
+}
+.login-content p:nth-of-type(1){
+    font-size: 2.5vw;
+    margin-bottom: 1vh;
+    font-weight: 500;
+}
+.login-content p:nth-of-type(2){
+    font-size: 1.5vw;
+    margin-bottom: 5vh
+}
+
+.login-content input{
+    margin: 1vh;
+    padding: 0.5vw;
+    width: 15vw;
+    height: 4vh;
+    font-size: 1vw;
+    border-radius: 0.5vw;
+    border: none;
+    background-color: #016a70;
+    color: white;
+}
+.login-content input::placeholder{
+    color: white;
+}
+
+.login-content p:nth-of-type(3){
+    width: 14vw;
+    font-size: 1vw;
+    margin: 1.5vh 0;
+    line-height: 3vh;
+    text-align: center;
+}
+
+.login-content #login-button{
+    padding: 1vh 2vw;
+    font-size: 1.2vw;
+    font-weight: 400;
+    border: none;
+    border-radius: 0.5vw;
+    background-color: #a2c579;
+    color: white;
+    cursor: pointer;
+}
+.login-content #login-button:hover{
+    background-color: #88b654;
+    color: white;
+}
+
+@media screen and (min-width:0px) and (max-width:500px){
+    .login-content p:nth-of-type(1){
+        font-size: 4.5vw;
+    }
+    .login-content p:nth-of-type(2){
+        font-size: 3.5vw;
+    }
+
+    .login-content input{
+        padding: 0 2vw;
+        width: 30vw;
+        height: 3.5vh;
+        font-size: 2vw;
+    }
+
+    .login-content p:nth-of-type(3){
+        width: 40vw;
+        font-size: 2.7vw;
+        line-height: 2vh;
+    }
+
+    .login-content #login-button{
+        padding: 1.2vh 4vw;
+        font-size: 3vw;
+        border-radius: 0.7vw;
+    }
+}
