@@ -1,0 +1,44 @@
+.login-content select{
+    margin: 0.5% 0.8%;
+    padding: 1% 1.5%;
+    width: 16.4%;
+    /* height: 4vh; */
+    font-size: 0.9vw;
+    border-radius: 0.9vw;
+    border: none;
+    background-color: #016a70;
+    color: white;
+}
+
+.login-content #signup-button{
+    padding: 0.4% 2.0%;
+    font-size: 1.1vw;
+    font-weight: 400;
+    border: none;
+    border-radius: 0.5vw;
+    background-color: #a2c579;
+    color: white;
+    cursor: pointer;
+    margin-top:0.8%;
+}
+.login-content #signup-button:hover{
+    background-color: #88b654;
+    color: white;
+}
+/* .login-content #signup-button{
+    margin-top:1%;
+    padding: 0.4% 2.0%;
+} */
+
+@media screen and (min-width:0px) and (max-width:500px){
+    .login-content select{
+        padding: 2% 3%;
+        width: 44%;
+        font-size: 3vw;
+    }
+    .login-content #signup-button{
+        margin-top:2%;
+        padding: 1.1% 3.6%;
+        font-size: 3vw;
+    }
+}

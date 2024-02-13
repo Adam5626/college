@@ -29,7 +29,7 @@ function Navbar()
 
             <div id="main_nav_right">
                 <p onClick = {()=>{navigation("/login")}}> Login</p>
-                <p>Signup</p>
+                <p onClick={() => {navigation('/signup')}}>Signup</p>
                 <p>Provider</p>
             </div>
 
@@ -44,7 +44,7 @@ function Navbar()
         { menuStatus && (
             <div id="menu_card">
             <p onClick = {()=>{navigation("/login")}}>Login</p>
-            <p>Signup</p>
+            <p onClick = { () => {navigation("/signup")} }>Signup</p>
             <p>Provider</p>
         </div>
         )}
