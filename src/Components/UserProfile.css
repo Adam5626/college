@@ -1,0 +1,30 @@
+.profile-container{
+    width: 100%;
+}
+.profile-content{
+    display: flex;
+    background-color: rgb(255, 162, 162);
+    flex-direction: column;
+    margin: 3% 5%;
+}
+.profile-container .profile-content .info{
+    display:flex;
+    flex-direction: row;
+    background-color: rgb(187, 252, 230);
+}
+.profile-container .profile-content .info .profile-image{
+    display: flex;
+    /* width: 16%; */
+}
+.profile-container .profile-content .info .profile-image img{
+    margin-top: 4%;
+    width: 50%;
+    background-color: red;
+    border-radius: 10px;
+    object-fit:cover;
+}
+.profile-container .profile-content .info .profile-info{
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+}

@@ -6,6 +6,7 @@ import Signup from './Components/Signup';
 import SignupNext from './Components/SignupNext';
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import UserProfile from './Components/UserProfile';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path = "/login" element = {<Login/>}/>
       <Route path = "/signup" element = {<Signup/>}/>
       <Route path = '/signupnext' element = {<SignupNext />}></Route>
+      <Route path = '/userProfile' element = {<UserProfile />}></Route>
     </Routes>
     </BrowserRouter>
     </>
