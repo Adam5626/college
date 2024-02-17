@@ -5,7 +5,7 @@
 }
 .profile-content{
     display: flex;
-    /* background-color: rgb(255, 162, 162); */
+    background-color: rgb(255, 162, 162);
     flex-direction: column;
     margin: 3% 5%;
 }
@@ -13,14 +13,13 @@
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
-    /* background-color: rgb(187, 252, 230); */
+    background-color: rgb(187, 252, 230);
 }
 .profile-container .profile-content .info .profile-image{
-    padding-top: 1%;
     display: flex;
     width:250px;
     height:250px;
-    /* background-color: rgb(180, 132, 224); */
+    background-color: blueviolet;
     padding-right:0;
     justify-content: flex-end;
     /* background-image: url("../assets/userImage.jpeg"); */
@@ -29,34 +28,19 @@
 
 .profile-container .profile-content .info .profile-image #edit_img{
     position: absolute;
-    top:12.9%;
-    left:18.1%;
+    top:11%;
+    left:18.5%;
 }
 .profile-container .profile-content .info .profile-image img{
-    /* margin-top: 4%; */
+    margin-top: 4%;
     width: 100%; 
     /* background-color: red; */
     border-radius: 10px;
     object-fit:cover;
 }
-.profile-container .profile-content .info .profile-name-info{
+.profile-container .profile-content .info .profile-info{
     display: flex;
     flex-direction: column;
-    /* background-color: antiquewhite; */
+    background-color: antiquewhite;
     margin-left: 3%;
-    width: 30%;
-}
-.profile-container .profile-content .info .profile-name-info input{
-    font-size: 2vw;
-    font-weight: 500;
-    margin:4% 0%;
-    margin-top: 0%;
-    border: none;
-}
-.profile-container .profile-content .info .profile-name-info textarea{
-    font-size: 0.8vw;
-    font-weight:500;
-    margin: 0%;
-    padding: 3% 3%;
-    resize: none;
 }
