@@ -5,9 +5,13 @@ import './UserProfile.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import imageDefault from '../assets/image-square.png'
+import langImage from '../assets/lang.png'
 import { useRef, useState } from "react";
 import AvatarEditor from 'react-avatar-editor';
+import Select from "react-select";
+
 /* <FontAwesomeIcon icon={faPen} /> */
 
 const UserProfile = () => {
@@ -66,6 +70,32 @@ const UserProfile = () => {
           setShowEditor(false); // Hide the editor
         }
     };
+
+    //Selectbox for languages
+    const languages = [
+        {value: "ENGLISH", label: "English"},
+        {value: "SPANISH", label: "Spanish"},
+        {value: "URDU", label: "Urdu"},
+        {value: "PUNJABI", label: "Punjabi"},
+        {value: "CHINESE ", label: "Chinese"},
+        {value: "JAPANESE", label: "Japanese"},
+        {value: "BANGALI", label: "Bangali"},
+        {value: "HINDI", label: "Hindi"},
+        {value: "PROTUGUESE", label: "Portuguese"},
+        {value: "RUSSIAN", label: "Russian"},
+    ]
+    const [displayOptions, setDisplayOptions] = useState(false);
+    const langRef = useRef(null);
+    const [newLanguage, setNewLanguage] = useState("");
+    const [languageAdded, setLanguageAdded] = useState(false);
+    const handleLanguageClick = () => {
+        // langRef.current.click();
+        setDisplayOptions(!displayOptions);
+    }
+    const handleLanguageChange = (event) => {
+        setNewLanguage(event.label);
+        setLanguageAdded(true);
+    }
 
     return ( <>
         <Navbar />
@@ -139,11 +169,26 @@ const UserProfile = () => {
                 </div>
                 <div className="languages">
                     <br />
-                    
-                    <h1>Languages</h1>
+                    <div className="language-heading">
+                        <p>Languages</p>
+                        <FontAwesomeIcon icon={faPen} id="lang" onClick={handleLanguageClick}/>
+                        
+                    </div>
+                    <div className="languages-list">
+                        {displayOptions && <Select options={languages} onChange={handleLanguageChange} />}
+                    </div>
+                    {languageAdded && <div className="languages-list">
+                        <img src={langImage} alt="language symbol" />
+                        <p>{ newLanguage }</p>
+                    </div>}
+
                 </div>
-                <div className="education">
+                <div className="education-container">
                     <h1>Education</h1>
+                    <div className="education">
+                    <FontAwesomeIcon icon={faGraduationCap} id="education-icon"/>
+                    <p> Uneducated retard </p>
+                    </div>
                 </div>
                 <div className="reviews">
                     <h1>Reviews</h1>
