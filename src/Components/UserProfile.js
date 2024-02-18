@@ -85,16 +85,27 @@ const UserProfile = () => {
         {value: "RUSSIAN", label: "Russian"},
     ]
     const [displayOptions, setDisplayOptions] = useState(false);
-    const langRef = useRef(null);
     const [newLanguage, setNewLanguage] = useState("");
     const [languageAdded, setLanguageAdded] = useState(false);
+    const [check, setCheck] = useState(true);
     const handleLanguageClick = () => {
-        // langRef.current.click();
-        setDisplayOptions(!displayOptions);
+        setDisplayOptions(true);
+        setCheck(false);
     }
+    let events; 
     const handleLanguageChange = (event) => {
-        setNewLanguage(event.label);
+        console.log(event);
+        events = event;
+        console.log(typeof events);
+        console.log(events.map(lang => (lang.label)));
+        setNewLanguage(events.map(lang => (lang.label)));
         setLanguageAdded(true);
+        
+    }
+    console.log(events);
+    const handleAppendClick= () => {
+        setDisplayOptions(false);
+        setCheck(true);
     }
 
     return ( <>
@@ -171,15 +182,27 @@ const UserProfile = () => {
                     <br />
                     <div className="language-heading">
                         <p>Languages</p>
-                        <FontAwesomeIcon icon={faPen} id="lang" onClick={handleLanguageClick}/>
+                        {check && <FontAwesomeIcon icon={faPen} id="lang" onClick={handleLanguageClick}/>}
+                        {!check && <FontAwesomeIcon icon={faCheck} onClick={handleAppendClick} style={{marginTop:"2.5%"}}/>} 
                         
                     </div>
                     <div className="languages-list">
-                        {displayOptions && <Select options={languages} onChange={handleLanguageChange} />}
+                        {displayOptions && <Select options={languages} onChange={handleLanguageChange} isMulti/>}
+                        {/* isMulti */}
                     </div>
-                    {languageAdded && <div className="languages-list">
+                    {/* {languageAdded && <div className="languages-list">
                         <img src={langImage} alt="language symbol" />
                         <p>{ newLanguage }</p>
+                    </div>} */}
+                    {languageAdded && <div className="languages-list">
+                        {newLanguage.map(lang=> (
+                            <div key={lang} className="language-item"> 
+                                <img src={langImage} alt="language symbol" />
+                                <p>{lang}</p>
+                            </div>
+                        ))}
+                        
+                        {/* <p>{ newLanguage }</p> */}
                     </div>}
 
                 </div>

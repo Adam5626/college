@@ -82,6 +82,12 @@
 }
 .profile-container .profile-content .languages .languages-list{
     display: flex;
+    flex-direction: column;
+    width: 10%;
+}
+.profile-container .profile-content .languages .languages-list .language-item{
+    display: flex;
+    flex-direction: row;
 }
 .profile-container .profile-content .languages .languages-list img{
     width: 70px;
