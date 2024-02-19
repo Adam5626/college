@@ -11,7 +11,8 @@ import langImage from '../assets/lang.png'
 import { useRef, useState } from "react";
 import AvatarEditor from 'react-avatar-editor';
 import Select from "react-select";
-
+// import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FaStar } from 'react-icons/fa'
 /* <FontAwesomeIcon icon={faPen} /> */
 
 const UserProfile = () => {
@@ -108,6 +109,9 @@ const UserProfile = () => {
         setCheck(true);
     }
 
+
+    //rating
+    const [rating, setRating] = useState(3);
     return ( <>
         <Navbar />
         <div className="profile-container">
@@ -170,7 +174,7 @@ const UserProfile = () => {
                                     Excepteur sint occaecat cupidatat non proident, sunt in
                                     culpa qui officia deserunt mollit anim id est laborum
                                 </p> */}
-                                <textarea rows="10" cols="50" type="text" defaultValue={userInfo} readOnly={infoEdit}/>
+                                <textarea rows="10" cols="48" type="text" defaultValue={userInfo} readOnly={infoEdit}/>
                                 {infoEdit && <FontAwesomeIcon icon={faPen} onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
                                 {!infoEdit && <FontAwesomeIcon icon={faCheck} onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
                             </div>
@@ -213,8 +217,56 @@ const UserProfile = () => {
                     <p> Uneducated retard </p>
                     </div>
                 </div>
-                <div className="reviews">
+                <div className="review-container">
                     <h1>Reviews</h1>
+                    <div className="review">
+                        <div className="review-message">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+                        <div className="review-details">
+                            <p>Erika M.</p>
+                            <p> 12th December, 2023</p>
+                            {[...Array(5)].map((star, index) => {
+                                const currentRating = index + 1;
+                                return (
+                                    <FaStar 
+                                    className="star" 
+                                    size={18}
+                                    color={currentRating <= (rating) ? "#ffc107" : "#e4e5e9"}
+                                    />
+                                )
+                            })}
+                        </div>
+
+                    </div>
+
+                    <div className="review">
+                    <div className="review-message">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+                        <div className="review-details">
+                            <p>Erika M.</p>
+                            <p> 12th December, 2023</p>
+                            {[...Array(5)].map((star, index) => {
+                                const currentRating = index + 1;
+                                return (
+                                    <FaStar 
+                                    className="star" 
+                                    size={18}
+                                    color={currentRating <= (rating) ? "#ffc107" : "#e4e5e9"}
+                                    />
+                                )
+                            })}
+
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
             
