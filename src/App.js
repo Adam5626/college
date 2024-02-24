@@ -9,6 +9,7 @@ import UserState from './Components/userContext/UserState';
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import UserProfile from './Components/UserProfile';
+import Review from './Components/Review';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path = '/signupnext' element = {<SignupNext />}></Route>
       <Route path = '/userProfile' element = {<UserProfile />}></Route>
       <Route path = '/cropper' element = {<CropImage />}></Route>
+      <Route path = '/review' element = {<Review />}></Route>
     </Routes>
     </UserState>
     </BrowserRouter>

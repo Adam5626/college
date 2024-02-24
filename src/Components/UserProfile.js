@@ -60,6 +60,11 @@ const UserProfile = () => {
           reader.addEventListener('load', () => setSorce(reader.result));
           reader.readAsDataURL(e.target.files[0]);
           setShowEditor(true);
+          const saveStyle = document.getElementsByClassName("languages")[0];
+          saveStyle.style.marginTop = "10%";
+
+          const infoStyle = document.getElementsByClassName("profile-name-info")[0];
+          infoStyle.style.marginLeft = "10%";
         }
       };
     const handleSave = () => {
@@ -70,6 +75,11 @@ const UserProfile = () => {
           setCroppedImageSrc(croppedImage);
           setShowEditor(false); // Hide the editor
         }
+        const saveStyle = document.getElementsByClassName("languages")[0];
+        saveStyle.style.marginTop = "0%";
+
+        const infoStyle = document.getElementsByClassName("profile-name-info")[0];
+        infoStyle.style.marginLeft = "1%";
     };
 
     //Selectbox for languages
@@ -112,6 +122,26 @@ const UserProfile = () => {
 
     //rating
     const [rating, setRating] = useState(3);
+
+
+    function resizeInput() {
+        const input = document.getElementById('dynamic-input');
+        const textWidth = getTextWidth(input.value, window.getComputedStyle(input).font);
+        input.style.width = `${textWidth}px`;
+      }
+  
+    function getTextWidth(text, font) {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        context.font = font;
+        const metrics = context.measureText(text);
+        return metrics.width;
+      }
+    // function resizeTextarea() {
+    //     const textarea = document.getElementById('dynamic-textarea');
+    //     textarea.style.height = 'auto'; // Reset textarea height to auto
+    //     textarea.style.height = `${textarea.scrollHeight}px`; // Set textarea height based on content
+    //   }
     return ( <>
         <Navbar />
         <div className="profile-container">
@@ -119,14 +149,13 @@ const UserProfile = () => {
             <div className="profile-content">
                 <div className="info">
                     <div className="profile-image">
-                    <FontAwesomeIcon id ="edit_img" icon={faPen} onClick={handleImageClick}/>
-                    <input type="file" ref={inputRef} onChange={handleFileChange} style={{display: "none"}}/>
+                    
                     {showEditor &&(
-                        <div style={{display:"inline-block"}}>
+                        <div className="editAvatar" id="editAvatarId">
                             {!sorce && <img src={imageDefault} alt="User" />}
                             
                             {sorce && (
-                                <div style={{display:"inline-block"}}>
+                                <div >
                                 <AvatarEditor
                                     ref={(editor) => setEditor(editor)}
                                     image={sorce}
@@ -139,8 +168,9 @@ const UserProfile = () => {
                                     position={position}
                                     onPositionChange={(position) => setPosition(position)}
                                     onScaleChange={(scale) => setScale(scale)}
+                                    
                                 />
-                                <button onClick={handleSave}>Save</button>
+                                <button id="saveImgButton" onClick={handleSave}>Save</button>
                                 </div>
                             )}
                         </div>
@@ -150,33 +180,27 @@ const UserProfile = () => {
                         <img src={croppedImageSrc} alt="Cropped" />
                         </div>
                     )}
-
+                    
                     </div>
-
+                    <FontAwesomeIcon id ="edit_img" icon={faPen} onClick={handleImageClick}/>
+                    <input type="file" ref={inputRef} onChange={handleFileChange} style={{display: "none"}}/>
                     <div className="profile-name-info">
                         
                             {/* <p>Muhammad Adam</p> */}
                             <div className="profile-name">
-                                <input type="text" defaultValue={userName} readOnly={nameEdit}/>
+                                <input type="text" defaultValue={userName} readOnly={nameEdit} id="dynamic-input" onInput={resizeInput}/>
                                 {console.log(nameEdit)}
-                                {nameEdit && <FontAwesomeIcon icon={faPen} onClick={handleNameClick}/>}
-                                {!nameEdit && <FontAwesomeIcon icon={faCheck} onClick={handleNameClick}/>}
+                                {nameEdit && <FontAwesomeIcon icon={faPen} onClick={handleNameClick} id="nameEdit"/>}
+                                {!nameEdit && <FontAwesomeIcon icon={faCheck} onClick={handleNameClick} className="check"/>}
                                 
                             </div>
                             
                             <div className="profile-info">
-                                {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in
-                                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    Excepteur sint occaecat cupidatat non proident, sunt in
-                                    culpa qui officia deserunt mollit anim id est laborum
-                                </p> */}
-                                <textarea rows="10" cols="48" type="text" defaultValue={userInfo} readOnly={infoEdit}/>
-                                {infoEdit && <FontAwesomeIcon icon={faPen} onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
-                                {!infoEdit && <FontAwesomeIcon icon={faCheck} onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
+
+                                <textarea rows="8" cols="48" type="text" defaultValue={userInfo} readOnly={infoEdit}/>
+                                {infoEdit && <FontAwesomeIcon icon={faPen} className="editImage" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
+                                {!infoEdit && <FontAwesomeIcon icon={faCheck} className="check" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
+                            
                             </div>
                         
                     </div>
@@ -187,11 +211,11 @@ const UserProfile = () => {
                     <div className="language-heading">
                         <p>Languages</p>
                         {check && <FontAwesomeIcon icon={faPen} id="lang" onClick={handleLanguageClick}/>}
-                        {!check && <FontAwesomeIcon icon={faCheck} onClick={handleAppendClick} style={{marginTop:"2.5%"}}/>} 
+                        {!check && <FontAwesomeIcon icon={faCheck} className="check" onClick={handleAppendClick} style={{marginTop:"2.5%"}}/>} 
                         
                     </div>
                     <div className="languages-list">
-                        {displayOptions && <Select options={languages} onChange={handleLanguageChange} isMulti/>}
+                        {displayOptions && <Select id="languageSelect"  options={languages} onChange={handleLanguageChange} isMulti/>}
                         {/* isMulti */}
                     </div>
                     {/* {languageAdded && <div className="languages-list">
@@ -201,7 +225,7 @@ const UserProfile = () => {
                     {languageAdded && <div className="languages-list">
                         {newLanguage.map(lang=> (
                             <div key={lang} className="language-item"> 
-                                <img src={langImage} alt="language symbol" />
+                                <img src={langImage} className="languageImage" alt="language symbol" />
                                 <p>{lang}</p>
                             </div>
                         ))}
@@ -211,14 +235,14 @@ const UserProfile = () => {
 
                 </div>
                 <div className="education-container">
-                    <h1>Education</h1>
+                    <p>Education</p>
                     <div className="education">
                     <FontAwesomeIcon icon={faGraduationCap} id="education-icon"/>
                     <p> Uneducated retard </p>
                     </div>
                 </div>
                 <div className="review-container">
-                    <h1>Reviews</h1>
+                    <p>Reviews</p>
                     <div className="review">
                         <div className="review-message">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

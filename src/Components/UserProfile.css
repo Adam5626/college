@@ -1,7 +1,5 @@
-
 .profile-container{
     width: 100%;
-    margin-bottom: 1000px;
 }
 .profile-content{
     display: flex;
@@ -22,15 +20,23 @@
     height:250px;
     /* background-color: rgb(180, 132, 224); */
     padding-right:0;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     /* background-image: url("../assets/userImage.jpeg"); */
-    background-size: cover;
+    /* background-size: cover; */
 }
-
-.profile-container .profile-content .info .profile-image #edit_img{
-    position: absolute;
-    top:12.9%;
-    left:18.1%;
+.profile-container .profile-content .info .profile-image #saveImgButton{
+    /* margin-bottom: 50%; */
+    background-color: white;
+    border-radius: 10px;
+    padding: 1% 2%;
+    border-style: solid;
+    border-color:#016a70;
+    font-weight: 500;
+}
+.profile-container .profile-content .info #edit_img{
+    /* top:12.9%;
+    left:18.1%; */
+    margin-left: 1%;
 }
 .profile-container .profile-content .info .profile-image img{
     /* margin-top: 4%; */
@@ -44,15 +50,25 @@
     flex-direction: column;
     /* background-color: rgb(240, 151, 35); */
     margin-left: 3%;
-    width: 35%;
+    width: 50%;
+}
+/* #dynamic-input {
+    width: auto; 
+    min-width: 50px; 
+} */
+.profile-container .profile-content .info .profile-name-info .profile-name #nameEdit{
+    padding-bottom: 1.2%;
+    padding-left: 2%;
 }
 .profile-container .profile-content .info .profile-name-info input{
     font-size: 2vw;
     font-weight: 500;
-    margin:2% 0%;
+    margin:0% 0%;
     margin-top: 0%;
     border: none;
     padding-left: 2%;
+    width: auto; 
+    min-width: 50px;
 }
 .profile-container .profile-content .info .profile-name-info textarea{
     font-size: 1vw;
@@ -62,10 +78,13 @@
     resize: none;
     border: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    height: auto;
+    min-height: 50px;
 }
 
 /* Languages */
 .profile-container .profile-content .languages{
+    /* margin-top: 5%; */
     display: flex;
     flex-direction: column;
 }
@@ -89,6 +108,7 @@
 .profile-container .profile-content .languages .languages-list .language-item{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .profile-container .profile-content .languages .languages-list img{
     width: 70px;
@@ -101,6 +121,16 @@
     color: #016a70;
 }
 
+/* education section */
+.profile-container .profile-content .education-container p{
+    font-size: 1.7vw;
+    font-weight: 500;
+    margin: 1% 0%;
+}
+.profile-container .profile-content .education{
+    display: flex;
+    align-items: center;
+}
 .profile-container .profile-content .education{
     display: flex;
     align-items: center;
@@ -113,6 +143,9 @@
     padding-left: 0.8%;
     padding-top: 0.2%;
     font-size:1vw;
+    font-weight: 500;
+    color: #016a70;
+    margin-bottom: 1%;
 }
 
 /* Review section */
@@ -121,6 +154,11 @@
     width: 50%;
     display: flex;
     flex-direction: column;
+}
+.profile-container .profile-content .review-container p{
+    font-size: 1.7vw;
+    font-weight: 500;
+    /* margin: 7% 0%; */
 }
 .profile-container .profile-content .review-container .review{
     display: flex;
@@ -133,7 +171,8 @@
     align-items: center;
 }
 .profile-container .profile-content .review-container .review .review-message p{
-    font-size: 1.1vw;
+    font-size: 1.1vw ;
+    font-weight: 400;
     margin: 0px;
 }
 .profile-container .profile-content .review-container .review .review-details p{
@@ -160,4 +199,92 @@
     cursor: pointer;
     margin-top: 1%;
     margin-left: 1%;
+}
+
+@media screen and (min-width:0px) and (max-width:500px){
+    .profile-container .profile-content .info .profile-image{
+    width:80px;
+    height:80px;
+    }
+    .profile-container .profile-content .info .profile-name-info input{
+        font-size: 4vw;
+    }
+    .profile-container .profile-content .info .profile-name-info textarea{
+        font-size: 2.1vw;
+    }
+    .profile-container .profile-content .info .profile-name-info{
+        width: 100%;
+    }
+    .profile-container .profile-content .info .profile-name-info .profile-name #nameEdit{
+        width: 10px;
+    }
+    .profile-container .profile-content .info .profile-name-info .profile-name .check{
+        width: 10px;
+    }
+    .profile-container .profile-content .info .profile-name-info .profile-info .check{
+        width: 10px;
+    }
+    .profile-container .profile-content .info .profile-name-info .profile-info .editImage{
+        width: 10px;
+    }
+    /* languages */
+    .profile-container .profile-content .languages .language-heading p:nth-of-type(1){
+        font-size: 4.5vw;
+    }
+    .profile-container .profile-content .languages .language-heading #lang{
+        width: 10px;
+    }
+    .profile-container .profile-content .languages .language-heading .check{
+        align-self: center;
+        width: 10px;
+    }
+    .profile-container .profile-content .languages .language-list #languageSelect{
+        width: 500%;
+    }
+    .profile-container .profile-content .languages .languages-list .language-item .languageImage{
+        width: 60px;
+    }
+    .profile-container .profile-content .languages .languages-list .language-item p{
+        font-size: 2.7vw;
+    }
+
+    /* education-section */
+    .profile-container .profile-content .education-container p{
+        font-size: 4.5vw;
+        font-weight: 500;
+        margin: 0px;
+    }
+    .profile-container .profile-content .education-container .education {
+        margin-top: 3%;
+    }
+    .profile-container .profile-content .education-container .education p{
+        font-size: 3vw;
+        margin-bottom: 0px;
+    }
+    .profile-container .profile-content .education-container .education #education-icon{
+        font-size: 3.3vw;
+    }
+
+    /* review section */
+    .profile-container .profile-content .review-container{
+        width: 80%;
+    }
+    .profile-container .profile-content .review-container p:nth-of-type(1){
+        font-size: 4.5vw;
+        font-weight: 500;
+        margin: 7% 0%;
+    }
+    .profile-container .profile-content .review-container .review .review-message p{
+        font-size: 3vw;
+        font-weight: 400;
+    }
+    .profile-container .profile-content .review-container .review .review-details p{
+        font-size: 3vw !important;
+        font-weight: 400 ;
+    }
+    #languageSelect{
+        width: 35vh;
+        height: 10vh;
+    }
+   
 }
