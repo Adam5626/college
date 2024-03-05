@@ -81,6 +81,67 @@
     height: auto;
     min-height: 50px;
 }
+/* Services */
+.profile-container .profile-content .services{
+    display: flex;
+    flex-direction: column;
+}
+.profile-container .profile-content .services p{
+    margin: 0%;
+}
+.profile-container .profile-content .services #services-heading{
+    margin-top: 2%;
+    font-size: 1.7vw;
+    font-weight: 500;
+    /* display: inline-block; */
+}
+.profile-container .profile-content .services #services-heading #plus-icon{
+    margin-left: 1%;
+    font-size: 1.5vw;
+    font-weight: 1000;
+    /* display: inline-block; */
+    color: #a2c579;
+}
+.profile-container .profile-content .services .service-title p{
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: #016a70;
+    margin-top: 2.5%;
+}
+.profile-container .profile-content .services .service-charge{
+    display: flex;
+    flex-direction: row;
+}
+.profile-container .profile-content .services .service-charge p{
+    font-size: 0.9vw;
+    color: #016a70;
+    margin-top: 0.7%;
+}
+.profile-container .profile-content .services .service-charge p:nth-of-type(1){
+    font-weight: 600;
+    padding-right: 0.3%;
+}
+.profile-container .profile-content .services .service-info{
+    width: 60%;
+    margin-top: 0.7%;
+    font-size: 0.9vw;
+}
+
+/* message provider */
+.profile-container .profile-content .message-provider{
+    margin-top: 2.5%;
+    width: 60%;
+}
+.profile-container .profile-content .message-provider p:nth-of-type(1){
+    font-size: 1.7vw;
+    font-weight: 500;
+    margin-bottom: 0%;
+}
+.profile-container .profile-content .message-provider p:nth-of-type(2){
+    margin-top: 1.5%;
+    font-size: 0.9vw;
+    line-height: 130%;
+}
 
 /* Languages */
 .profile-container .profile-content .languages{

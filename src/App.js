@@ -9,6 +9,7 @@ import UserState from './Components/userContext/UserState';
 
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import UserProfile from './Components/UserProfile';
+import ProviderProfile from './Components/ProviderProfile';
 import Review from './Components/Review';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path = '/userProfile' element = {<UserProfile />}></Route>
       <Route path = '/cropper' element = {<CropImage />}></Route>
       <Route path = '/review' element = {<Review />}></Route>
+      <Route path = '/providerProfile' element = {<ProviderProfile />}></Route>
     </Routes>
     </UserState>
     </BrowserRouter>
