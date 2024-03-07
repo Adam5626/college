@@ -1,0 +1,89 @@
+.view-providers-container{
+    padding-top: 2%;
+    padding-left: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.view-providers-container #heading{
+    font-size: 1.8vw;
+    font-weight: 500;
+}
+
+.view-providers-container .search-bar{
+    display: flex;
+    flex-direction: row;
+}
+.view-providers-container .search-bar input{
+    background-color: #c4dfa6;
+    color: #016a70;
+    padding: 1% 0.8%;
+    border-radius: 10px;
+    border-style: solid;
+    font-size: 1.2vw;
+    font-weight: 500;
+    width: 30%;
+}
+.view-providers-container .search-bar select{
+    background-color: #c4dfa6;
+    color: #016a70;
+    margin-left: 1.2%;
+    border-radius: 10px;
+    border-style: solid;
+    padding: 0% 1%;
+    font-weight: 500;
+    font-size: 1vw;
+}
+
+.view-providers-container .provider-container{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+}
+.view-providers-container .provider-container .provider-name p{
+    color: #016a70;
+    font-size: 1.3vw;
+    font-weight: 500;
+    margin: 0%;
+}
+.view-providers-container .provider-container .provider-info p{
+    margin: 0%;
+    margin-top: 1.2%;
+    font-size: 1vw;
+    line-height: 120%;
+}
+.view-providers-container .provider-container .provider-skills ul{
+    display: flex;
+    flex-direction: row;
+    margin: 3% 0%;
+    font-size: 1vw;
+    font-weight: 500;
+    color: #016a70;
+}
+.view-providers-container .provider-container .provider-skills ul li:nth-of-type(1){
+    margin-left: 0%;
+}
+.view-providers-container .provider-container .provider-skills ul li{
+    margin-left: 5%;
+}
+.view-providers-container .provider-container .provider-skills p{
+    color: #016a70;
+    font-weight: 600;
+    font-size: 1vw;
+}
+.view-providers-container .provider-container button{
+    background-color: #6ca8ac;
+    color: white;
+    font-size: 1vw;
+    font-weight: 500;
+    width: 18%;
+    padding: 1.7% 2%;
+    border-style: none;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+.view-providers-container .provider-container button:hover{
+    background-color: #016a70;
+}

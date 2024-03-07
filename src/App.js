@@ -10,6 +10,7 @@ import UserState from './Components/userContext/UserState';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import UserProfile from './Components/UserProfile';
 import ProviderProfile from './Components/ProviderProfile';
+import ViewProvider from './Components/ViewProviders';
 import Review from './Components/Review';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <Route path = '/cropper' element = {<CropImage />}></Route>
       <Route path = '/review' element = {<Review />}></Route>
       <Route path = '/providerProfile' element = {<ProviderProfile />}></Route>
+      <Route path = '/viewProviders' element = { <ViewProvider /> }></Route>
     </Routes>
     </UserState>
     </BrowserRouter>
