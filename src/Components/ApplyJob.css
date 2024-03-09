@@ -1,0 +1,91 @@
+.ApplyJob-container{
+    width: 100%;
+    padding: 2% 8%;
+}
+
+.ApplyJob-container .ApplyJob-content{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.ApplyJob-container .ApplyJob-content .ApplyJob-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-left{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+}
+.ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-left p{
+    font-size: 1.3vw;
+    font-weight: 500;
+    color: #016a70;
+
+}
+.ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-left button{
+    height: 55%;
+    margin-left: 2%;
+    background-color: #a2c579;
+    border-style: none;
+    border-radius: 1vw;
+    color: white;
+    padding: 0% 2.5%;
+    font-size: 1vw;
+    font-weight: 500;
+}
+
+.ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-right p{
+    font-size: 1.3vw;
+    font-weight: 500;
+    color: #016a70;
+}
+
+.ApplyJob-container .ApplyJob-content .job-info{
+    margin-top: 0%;
+    font-size: 1.2vw;
+    line-height: 2.9vh;
+    font-weight: 300;
+}
+.ApplyJob-container .ApplyJob-content .job-info p{
+    margin-top: 0%;
+}
+
+.ApplyJob-container .ApplyJob-content .job-proposal{
+    margin-bottom: 3%;
+}
+.ApplyJob-container .ApplyJob-content .job-proposal textarea{
+    padding: 2%;
+    border-radius: 1vw;
+    border-style: none;
+    background-color: #84adab;
+    color: white;
+    font-size: 1vw;
+}
+
+.ApplyJob-container .ApplyJob-content .job-rate{
+    margin-bottom: 2%;
+}
+
+.ApplyJob-container .ApplyJob-content .job-rate textarea{
+    padding: 2%;
+    border-radius: 1vw;
+    border-style: none;
+    background-color: #84adab;
+    color: white;
+    font-size: 1vw;
+}
+
+.ApplyJob-container .ApplyJob-content .job-apply button{
+    font-size: 1vw;
+    font-weight: 500;
+    color: white;
+    background-color: #4d7978;
+    border-radius: 1vw;
+    border-style: none;
+    padding: 1.5% 3.5%;
+    cursor: pointer;
+}

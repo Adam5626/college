@@ -1,0 +1,68 @@
+.findJobs-container{
+    width: 100%;
+    padding: 2% 8%;
+}
+.findJobs-container p:nth-of-type(1){
+    font-size: 2.2vw;
+    font-weight: 500;
+}
+
+.findJobs-container .job-container{
+    padding-left: 0.5%;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-bottom: 2%;
+}
+
+.findJobs-container .job-container .job-container-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.findJobs-container .job-container .job-container-header .job-container-header-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+}
+.findJobs-container .job-container .job-container-header .job-container-header-left p{
+    color: #016a70;
+    font-size: 1.2vw;
+    font-weight: 600;
+}
+.findJobs-container .job-container .job-container-header .job-container-header-left button{
+    background-color: #a2c579;
+    color: white;
+    font-size: 0.9vw;
+    font-weight: 500;
+    border-style: none;
+    height: 60%;
+    padding: 0% 5%;
+    border-radius: 1vw;
+    margin-left: 4%;
+}
+
+.findJobs-container .job-container .job-container-header .job-container-header-right p{
+    color: #016a70;
+    font-size: 1.2vw;
+    font-weight: 600;
+}
+
+.findJobs-container .job-container .job-info p{
+    margin-top: 0%;
+    font-size: 1vw;
+    font-weight: 400;
+}
+
+.findJobs-container .job-container .job-apply button{
+    background-color: #016a70;
+    color: white;
+    font-size: 1vw;
+    font-size: 600;
+    border-style: none;
+    border-radius: 1vw;
+    padding: 1% 4%;
+    cursor: pointer;
+}

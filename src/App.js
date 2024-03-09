@@ -12,6 +12,9 @@ import UserProfile from './Components/UserProfile';
 import ProviderProfile from './Components/ProviderProfile';
 import ViewProvider from './Components/ViewProviders';
 import Review from './Components/Review';
+import UserInbox from './Components/UserInbox';
+import FindJobs from './Components/FindJobs';
+import ApplyJob from './Components/ApplyJob';
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
       <Route path = '/review' element = {<Review />}></Route>
       <Route path = '/providerProfile' element = {<ProviderProfile />}></Route>
       <Route path = '/viewProviders' element = { <ViewProvider /> }></Route>
+      <Route path = "/userInbox" element = { <UserInbox />}></Route>
+      <Route path = "/findJobs" element = { <FindJobs/> }></Route>
+      <Route path = "/apply" element = { <ApplyJob/> }></Route>
     </Routes>
     </UserState>
     </BrowserRouter>

@@ -1,0 +1,57 @@
+.inbox-container{
+    width: 100%;
+    padding: 2% 8%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+.inbox-container .inbox-content{
+    display: flex;
+}
+.inbox-container p:nth-of-type(1){
+    font-size: 2.2vw;
+    font-weight: 500;
+}
+.inbox-container .inbox-content .inbox-content-left{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.inbox-container .inbox-content .inbox-content-left .text-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+}
+.inbox-container .inbox-content .inbox-content-left .text-container .text-buttons{
+    display: flex;
+    flex-direction: row;
+    
+}
+.inbox-container .inbox-content .inbox-content-left .text-container .text-buttons button{
+    padding: 0.7% 1.5%;
+    font-size: 1vw;
+    font-weight: 600;
+    margin-right: 0.8%;
+    border-style: none;
+    border-radius: 1vw;
+    color: white;
+    cursor: pointer;
+}
+.inbox-container .inbox-content .inbox-content-left .text-container .text-buttons button:nth-of-type(1){
+    background-color: #a2c579;
+}
+.inbox-container .inbox-content .inbox-content-left .text-container .text-buttons button:nth-of-type(2){
+    background-color: #016a70;
+}
+
+.inbox-container .inbox-content .inbox-content-left .text-container .text-info{
+    width: 100%;
+}
+.inbox-container .inbox-content .inbox-content-left .text-container .text-info p{
+    margin-top: 1.2%;
+    font-size: 1.3vw;
+    font-weight: 300;
+    line-height: 1.5vw;
+}
+
+.inbox-container .inbox-content .inbox-content-right{
+    padding-left: 11%;
+}
