@@ -87,3 +87,37 @@
 .view-providers-container .provider-container button:hover{
     background-color: #016a70;
 }
+
+@media screen and (min-width:0px) and (max-width:500px){
+    .view-providers-container #heading{
+        font-size: 4.2vw;
+    }
+    .view-providers-container .search-bar input{
+        padding: 2% 1.8%;
+        font-size: 2.2vw;
+        width: 42%;
+    }
+    .view-providers-container .search-bar select{
+        padding: 1% 2%;
+        font-size: 2vw;
+    }
+    .view-providers-container .provider-container{
+        margin-top: 5%;
+        width: 75%;
+    }
+    .view-providers-container .provider-container .provider-name p{
+        font-size: 3vw;
+    }
+    .view-providers-container .provider-container .provider-info p{
+        margin-top: 2%;
+        font-size: 2vw;
+    }
+    .view-providers-container .provider-container .provider-skills ul{
+        font-size: 2.1vw;
+        padding-left: 2%;
+    }
+    .view-providers-container .provider-container button{
+        font-size: 2.2vw;
+        padding: 2.7% 3%;
+    }
+}

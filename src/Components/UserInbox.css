@@ -55,3 +55,58 @@
 .inbox-container .inbox-content .inbox-content-right{
     padding-left: 11%;
 }
+
+@media screen and (min-width:0px) and (max-width:500px){
+    .inbox-container p:nth-of-type(1){
+        font-size: 4.2vw;
+    }
+    .inbox-container .inbox-content .inbox-content-left{
+        width: 70%;
+    }
+    .inbox-container .inbox-content .inbox-content-left .text-container{
+        display: flex;
+        flex-direction: column;
+        margin: 3% 0%;
+    }
+    .inbox-container .inbox-content .inbox-content-left .text-container .text-buttons button{
+        padding: 2.5% 3.3%;
+        font-size: 2vw;
+        margin-right: 2%;
+    }
+    .inbox-container .inbox-content .inbox-content-left .text-container .text-info p{
+        margin-top: 2%;
+        font-size: 2.5vw;
+        font-weight: 400;
+        line-height: 2.8vw;
+    }
+    .inbox-container .inbox-content .inbox-content-right{
+        display: none;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:880px){
+    .inbox-container .inbox-content{
+        display: flex;
+        align-items: center;
+    }
+    .inbox-container .inbox-content .inbox-content-left{
+        width: 52%;
+    }
+    .inbox-container .inbox-content .inbox-content-left .text-container .text-buttons button{
+        padding: 1.0% 2%;
+        font-size: 1.5vw;
+        margin-right: 2%;
+    }
+    .inbox-container .inbox-content .inbox-content-left .text-container .text-info p{
+        margin-top: 2%;
+        font-size: 1.5vw;
+        font-weight: 400;
+        line-height: 1.8vw;
+    }
+    .inbox-container .inbox-content .inbox-content-right{
+        padding-left: 0%;
+    }
+    .inbox-container .inbox-content .inbox-content-right img{
+        width: 300px;
+    }
+}

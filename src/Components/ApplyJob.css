@@ -24,7 +24,6 @@
     font-size: 1.3vw;
     font-weight: 500;
     color: #016a70;
-
 }
 .ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-left button{
     height: 55%;
@@ -88,4 +87,82 @@
     border-style: none;
     padding: 1.5% 3.5%;
     cursor: pointer;
+}
+
+@media screen and (min-width:0px) and (max-width:500px){
+    .ApplyJob-container .ApplyJob-content{
+        width: 70%;
+        margin-top: 5%;
+    }
+    .ApplyJob-container .ApplyJob-content .ApplyJob-header{
+        align-items: center;
+    }
+    .ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-left{
+        width: 70%;
+    }
+    .ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-left p{
+        font-size: 2.3vw;
+    }
+    .ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-left button{
+        padding: 3% 3.5%;
+        font-size: 2vw;
+    }
+    .ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-right p{
+        font-size: 2.3vw;
+    }
+    .ApplyJob-container .ApplyJob-content .job-info{
+        font-size: 2.5vw;
+        line-height: 2vh;
+        font-weight: 400;
+    }
+    .ApplyJob-container .ApplyJob-content .job-proposal textarea{
+        padding: 3%;
+        font-size: 2vw;
+    }
+    .ApplyJob-container .ApplyJob-content .job-rate textarea{
+        padding: 3%;
+        font-size: 2vw;
+    }
+
+    .ApplyJob-container .ApplyJob-content .job-apply button{
+        margin-top: 2%;
+        font-size: 2vw;
+        padding: 2.5% 4.5%;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:880px){
+    .ApplyJob-container .ApplyJob-content{
+        width: 60%;
+        margin-top: 3%;
+    }
+    .ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-left p{
+        font-size: 1.8vw;
+    }
+    .ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-left button{
+        padding: 2.5% 3%;
+        font-size: 1.5vw;
+    }
+    .ApplyJob-container .ApplyJob-content .ApplyJob-header .ApplyJob-header-right p{
+        font-size: 1.8vw;
+    }
+    .ApplyJob-container .ApplyJob-content .job-info{
+        font-size: 1.5vw;
+        line-height: 1.5vh;
+        font-weight: 400;
+    }
+    .ApplyJob-container .ApplyJob-content .job-proposal textarea{
+        padding: 2.5%;
+        font-size: 1.5vw;
+    }
+    .ApplyJob-container .ApplyJob-content .job-rate textarea{
+        padding: 2%;
+        font-size: 1.5vw;
+    }
+
+    .ApplyJob-container .ApplyJob-content .job-apply button{
+        margin-top: 1.5%;
+        font-size: 1.5vw;
+        padding: 2% 4%;
+    }
 }
