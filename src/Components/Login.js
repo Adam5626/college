@@ -4,6 +4,10 @@ import "./Login.css"
 import { auth } from "./firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import userContext from "./userContext/userContext";
+import { useContext } from "react";
+
+import { auth_provider } from "./firebase/firebase";
 
 
 function Login()
@@ -11,15 +15,32 @@ function Login()
     const navigation = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const user_context = useContext(userContext);
 
     const login =  ()=>{
-         signInWithEmailAndPassword(auth, email, password).then((response)=>{
-            console.log("Login Successfull");
-            navigation("/userProfile");
-        }).catch((error)=>{
-            alert(error);
-            console.log(error);
-        })
+
+        if(user_context.state_["current_state"] === "Student")
+        {
+            signInWithEmailAndPassword(auth, email, password).then((response)=>{
+                console.log("Login Successfull");
+                navigation("/userProfile");
+            }).catch((error)=>{
+                alert(error);
+                console.log(error);
+            })
+        }
+        else if(user_context.state_["current_state"] === "Provider")
+        {
+            signInWithEmailAndPassword(auth_provider, email, password).then((response)=>{
+                console.log("Login Successfull");
+                navigation("/providerProfile");
+            }).catch((error)=>{
+                alert(error);
+                console.log(error);
+            }) 
+        }
+
+
     }
 
 
