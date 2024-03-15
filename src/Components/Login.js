@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from "./Navbar";
 import "./Login.css"
 import { auth } from "./firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
+
+
 function Login()
 {
     const navigation = useNavigate();
@@ -20,13 +22,13 @@ function Login()
         })
     }
 
+
     return(
         <>
         <Navbar/>
         <div className="login-container">
             <div className="login-content">
                 <p>Login</p>
-                <p>Student</p>
                 <input onChange={(e)=>{setEmail(e.target.value);}} type="email" required placeholder="Email Address"/>
                 <input onChange={(e)=>{setPassword(e.target.value);}} type="password" required placeholder="Password" />
                 <p>Don’t have an account ? <p className="signup" onClick={() => {navigation('/signup')}}>Signup</p></p>

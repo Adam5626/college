@@ -238,7 +238,7 @@ const UserProfile = () => {
                     <p>Education</p>
                     <div className="education">
                     <FontAwesomeIcon icon={faGraduationCap} id="education-icon"/>
-                    <p> Uneducated retard </p>
+                    <p> BS AI </p>
                     </div>
                 </div>
                 <div className="review-container">

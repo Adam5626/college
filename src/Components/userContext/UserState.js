@@ -8,7 +8,9 @@ const UserState = (props)=>{
         "password" : "",
         "dob" : "",
         "gender" : "",
-        "education" : ""
+        "education" : "",
+        "current_state" : "Student",
+        "target_state" : "Provider"
     }
 
     const [state_, setState] = useState(state);
