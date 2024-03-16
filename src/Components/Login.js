@@ -21,6 +21,7 @@ function Login()
 
         if(user_context.state_["current_state"] === "Student")
         {
+            user_context.update("email", email);
             signInWithEmailAndPassword(auth, email, password).then((response)=>{
                 console.log("Login Successfull");
                 navigation("/userProfile");
@@ -31,6 +32,7 @@ function Login()
         }
         else if(user_context.state_["current_state"] === "Provider")
         {
+            user_context.update("email", email);
             signInWithEmailAndPassword(auth_provider, email, password).then((response)=>{
                 console.log("Login Successfull");
                 navigation("/providerProfile");

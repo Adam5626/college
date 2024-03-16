@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import './ProviderProfile.css';
@@ -16,13 +16,27 @@ import Select from "react-select";
 import { FaStar } from 'react-icons/fa'
 /* <FontAwesomeIcon icon={faPen} /> */
 
+import { collection, doc, setDoc, getDocs } from "firebase/firestore";
+import { db } from "./firebase/firebase";
+
+import userContext from "./userContext/userContext";
+import { useContext } from "react";
+
+
+
 const ProviderProfile = () => {
+    const user_context = useContext(userContext);
+    const [loading, setLoading] = useState(false);
+
     const navigation = useNavigate();
     const inputRef = useRef(null);
     const [image, setImage] = useState("");
 
     const [userName, setUserName] = useState("User Name");
     const [nameEdit, setNameEdit] = useState(true);
+
+    const [message, setMessage] = useState("Provider Message Here.");
+    const [education, setEducation] = useState("Provider's Education");
 
     const [userInfo, setUserInfo] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum");
     const [infoEdit, setInfoEdit] = useState(true);
@@ -32,7 +46,31 @@ const ProviderProfile = () => {
     const handleInputChange = (e) => {
         setUserName(e.target.value);
     }
-    const handleNameClick = () => {
+    const handleNameClick = async () => {
+        if(nameEdit === false)
+        {
+            setLoading(true);
+            const nameInput = document.getElementById("dynamic-input");
+            setUserName(nameInput.value);
+
+            const providersCollection = collection(db, "provider_profiles");
+            var docId;
+            var reqDoc;
+            await getDocs(providersCollection).then((docs)=>{
+                docs.forEach((doc)=>{
+                    if(doc.data()["email"] === user_context.state_["email"])
+                    {
+                        docId = doc.id;
+                        reqDoc = doc;
+                    }
+                })
+            })
+
+            var data = reqDoc.data();
+            data["name"] = nameInput.value;
+            await setDoc(doc(db, "provider_profiles", docId), data);
+            setLoading(false);
+        }
         setNameEdit(!nameEdit);
         console.log("handle name change clicked!");
     }
@@ -143,7 +181,40 @@ const ProviderProfile = () => {
     //     textarea.style.height = 'auto'; // Reset textarea height to auto
     //     textarea.style.height = `${textarea.scrollHeight}px`; // Set textarea height based on content
     //   }
-    return ( <>
+
+    const get_provider_data = async ()=>{
+        setLoading(true);
+        const providersCollection = collection(db, "provider_profiles");
+        await getDocs(providersCollection).then((docs)=>{
+            docs.forEach((doc)=>{
+                console.log(doc.data());
+                if(doc.data()["email"] === user_context.state_["email"])
+                {
+                    console.log("match");
+                    setUserName(doc.data()["name"]);
+                    setUserInfo(doc.data()["info"]);
+                    setMessage(doc.data()["message"]);
+                    setEducation(doc.data()["education"]);
+                    setLoading(false);
+                }
+
+            })
+        })
+    }
+
+
+    useEffect(()=>{
+        get_provider_data();
+    }, [])
+
+    if(loading === true)
+    {
+        return(
+            <p>Loading ... </p>
+        )
+    }
+    return (      
+        <>
         <Navbar />
         <div className="profile-container">
         
@@ -267,11 +338,7 @@ const ProviderProfile = () => {
 
                 <div className="message-provider">
                     <p>Message Adam</p>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    <p> {message}
                     </p>
                 </div>
 
@@ -307,7 +374,7 @@ const ProviderProfile = () => {
                     <p>Education</p>
                     <div className="education">
                     <FontAwesomeIcon icon={faGraduationCap} id="education-icon"/>
-                    <p> Uneducated retard </p>
+                    <p> {education} </p>
                     </div>
                 </div>
                 <div className="review-container">
