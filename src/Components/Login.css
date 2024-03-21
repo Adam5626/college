@@ -27,6 +27,7 @@
     border: none;
     background-color: #4d7978;
     color: white;
+    color-scheme: dark;
 }
 .login-content input::placeholder{
     color: white;
