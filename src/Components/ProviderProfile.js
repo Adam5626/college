@@ -7,6 +7,8 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+// import { faCircleXmark} from '@fortawesome/free-regular-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import imageDefault from '../assets/image-square.png'
 import langImage from '../assets/lang.png'
 import { useRef, useState } from "react";
@@ -303,45 +305,49 @@ const ProviderProfile = () => {
                             <button onClick={()=>{setAddService(!addService)}}> Add service </button>
                         
                         </div>}
-                    <div className="service-title">
-                        <p> English Tutoring </p>
-                        
-                    </div>
-                    <div className="service-charge">
-                        <p>100$ </p>
-                        <p>/ 60 min</p>
-                    </div>
-                    <div className="service-info">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
 
-                    <div className="service-title">
-                        <p> Punjabi Tutoring </p>
-                        
+                    <div className="service-card">
+                        <div className="service-title">
+                            <p> English Tutoring </p>
+                            <FontAwesomeIcon icon={faTimesCircle} id="remove-service"/>
+                        </div>
+                        <div className="service-charge">
+                            <p>100$ </p>
+                            <p>/ 60 min</p>
+                        </div>
+                        <div className="service-info">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                                ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
                     </div>
-                    <div className="service-charge">
-                        <p>100$ </p>
-                        <p>/ 60 min</p>
+                    <div className="service-card">
+                        <div className="service-title">
+                            <p> Punjabi Tutoring </p>
+                            <FontAwesomeIcon icon={faTimesCircle} id="remove-service"/>
+                        </div>
+                        <div className="service-charge">
+                            <p>100$ </p>
+                            <p>/ 60 min</p>
+                        </div>
+                        <div className="service-info">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                                ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
                     </div>
-                    <div className="service-info">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-
+                    <div className="service-card">
                     <div className="service-title">
                         <p> Persian Tutoring </p>
-                        
+                        <FontAwesomeIcon icon={faTimesCircle} id="remove-service"/>
                     </div>
                     <div className="service-charge">
                         <p>100$ </p>
@@ -355,6 +361,7 @@ const ProviderProfile = () => {
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
+                    </div>
                     </div>
                 </div>
 
