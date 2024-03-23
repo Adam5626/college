@@ -63,6 +63,18 @@
     padding-bottom: 1.2%;
     padding-left: 2%;
 }
+.profile-container .profile-content .info .profile-name-info .profile-name #check{
+    padding-bottom: 1.2%;
+    padding-left: 2%;
+}
+.profile-container .profile-content .info .profile-name-info .profile-info .editImage{
+    padding-bottom: 1.2%;
+    padding-left: 2%;
+}
+.profile-container .profile-content .info .profile-name-info .profile-info #check{
+    padding-bottom: 1.2%;
+    padding-left: 2%;
+}
 .profile-container .profile-content .info .profile-name-info input{
     font-size: 2vw;
     font-weight: 500;
@@ -165,6 +177,7 @@
     /* margin: 7% 0%; */
 }
 .profile-container .profile-content .review-container .review{
+    margin-top: 0%;
     display: flex;
     flex-direction: column;
     margin-bottom: 4%;

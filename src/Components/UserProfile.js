@@ -191,7 +191,7 @@ const UserProfile = () => {
                                 <input type="text" defaultValue={userName} readOnly={nameEdit} id="dynamic-input" onInput={resizeInput}/>
                                 {console.log(nameEdit)}
                                 {nameEdit && <FontAwesomeIcon icon={faPen} onClick={handleNameClick} id="nameEdit"/>}
-                                {!nameEdit && <FontAwesomeIcon icon={faCheck} onClick={handleNameClick} className="check"/>}
+                                {!nameEdit && <FontAwesomeIcon icon={faCheck} onClick={handleNameClick} id="check"/>}
                                 
                             </div>
                             
@@ -199,7 +199,7 @@ const UserProfile = () => {
 
                                 <textarea rows="8" cols="48" type="text" defaultValue={userInfo} readOnly={infoEdit}/>
                                 {infoEdit && <FontAwesomeIcon icon={faPen} className="editImage" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
-                                {!infoEdit && <FontAwesomeIcon icon={faCheck} className="check" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
+                                {!infoEdit && <FontAwesomeIcon icon={faCheck} id="check" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
                             
                             </div>
                         

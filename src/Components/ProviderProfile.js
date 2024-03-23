@@ -40,6 +40,9 @@ const ProviderProfile = () => {
 
     const [userInfo, setUserInfo] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum");
     const [infoEdit, setInfoEdit] = useState(true);
+
+    const [addService, setAddService] = useState(false);
+
     const handleImageClick = (event) => {
         inputRef.current.click();
     }
@@ -263,7 +266,7 @@ const ProviderProfile = () => {
                                 <input type="text" defaultValue={userName} readOnly={nameEdit} id="dynamic-input" onInput={resizeInput}/>
                                 {console.log(nameEdit)}
                                 {nameEdit && <FontAwesomeIcon icon={faPen} onClick={handleNameClick} id="nameEdit"/>}
-                                {!nameEdit && <FontAwesomeIcon icon={faCheck} onClick={handleNameClick} className="check"/>}
+                                {!nameEdit && <FontAwesomeIcon icon={faCheck} onClick={handleNameClick} id="check"/>}
                                 
                             </div>
                             
@@ -271,7 +274,7 @@ const ProviderProfile = () => {
 
                                 <textarea rows="8" cols="48" type="text" defaultValue={userInfo} readOnly={infoEdit}/>
                                 {infoEdit && <FontAwesomeIcon icon={faPen} className="editImage" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
-                                {!infoEdit && <FontAwesomeIcon icon={faCheck} className="check" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
+                                {!infoEdit && <FontAwesomeIcon icon={faCheck} id="check" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
                             
                             </div>
                         
@@ -279,8 +282,27 @@ const ProviderProfile = () => {
                     
                 </div>
                 <div className="services">
-                    <p id="services-heading">Services <FontAwesomeIcon id="plus-icon" icon={faPlus} /></p>
-                    
+                    <p id="services-heading">Services <FontAwesomeIcon id="plus-icon" icon={faPlus} onClick={() => setAddService(!addService)}/></p>
+                    {addService && <div className="add-service">
+                            <div id="add-title">
+                                <label>Title:</label>
+                                <input placeholder="Service title" type="text" />
+                            </div>
+                            
+                            <div className="money-per-time">
+                                <label>Rate:</label>
+                                <input placeholder="paisa" type="number"/>
+
+                                <label>Time:</label>
+                                <input placeholder="minutes" type="number"/>
+                            </div>
+                            
+                            <label>Description:</label>
+                            <textarea placeholder="Service Description" rows={10}></textarea>
+                        
+                            <button onClick={()=>{setAddService(!addService)}}> Add service </button>
+                        
+                        </div>}
                     <div className="service-title">
                         <p> English Tutoring </p>
                         
