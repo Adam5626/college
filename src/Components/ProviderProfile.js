@@ -80,6 +80,39 @@ const ProviderProfile = () => {
         console.log("handle name change clicked!");
     }
 
+
+    const handleInfoClick = async ()=>{
+
+        if(infoEdit === false)
+        {
+            setLoading(true);
+            const infoInput = document.getElementById("info-text");
+            setUserInfo(infoInput.value);
+            console.log(infoInput.value);
+            const providersCollection = collection(db, "provider_profiles");
+
+            var docId;
+            var reqDoc;
+            await getDocs(providersCollection).then((docs)=>{
+                docs.forEach((doc)=>{
+                    if(doc.data()["email"] === user_context.state_["email"])
+                    {
+                        docId = doc.id;
+                        reqDoc = doc;
+                        console.log("Found Match");
+                    }
+                })
+            })
+
+            var data = reqDoc.data();
+            data["info"] = infoInput.value;
+            await setDoc(doc(db, "provider_profiles", docId), data);
+            setLoading(false);
+        }
+
+        setInfoEdit(!infoEdit);
+    }
+
     const handleImageChange = (event) => {
         // const file = event.target.files[0];
         // console.log(file);
@@ -126,6 +159,8 @@ const ProviderProfile = () => {
         infoStyle.style.marginLeft = "1%";
     };
 
+
+
     //Selectbox for languages
     const languages = [
         {value: "ENGLISH", label: "English"},
@@ -140,7 +175,7 @@ const ProviderProfile = () => {
         {value: "RUSSIAN", label: "Russian"},
     ]
     const [displayOptions, setDisplayOptions] = useState(false);
-    const [newLanguage, setNewLanguage] = useState("");
+    const [newLanguage, setNewLanguage] = useState(["Languages"]);
     const [languageAdded, setLanguageAdded] = useState(false);
     const [check, setCheck] = useState(true);
     const handleLanguageClick = () => {
@@ -158,8 +193,28 @@ const ProviderProfile = () => {
         
     }
     console.log(events);
-    const handleAppendClick= () => {
+    const handleAppendClick= async () => {
         setDisplayOptions(false);
+        console.log("Languages : ", newLanguage);
+        setLoading(true);
+        const providersCollection = collection(db, "provider_profiles");
+        var docId;
+        var reqDoc;
+        await getDocs(providersCollection).then((docs)=>{
+            docs.forEach((doc)=>{
+                if(doc.data()["email"] === user_context.state_["email"])
+                {
+                    reqDoc = doc;
+                    docId = doc.id;
+                }
+            })
+        })
+
+        var data = reqDoc.data();
+        data["languages"] = newLanguage;
+        await setDoc(doc(db, "provider_profiles", docId), data);
+        setLanguageAdded(false);
+        setLoading(false);
         setCheck(true);
     }
 
@@ -200,6 +255,7 @@ const ProviderProfile = () => {
                     setUserInfo(doc.data()["info"]);
                     setMessage(doc.data()["message"]);
                     setEducation(doc.data()["education"]);
+                    setNewLanguage(doc.data()["languages"]);
                     setLoading(false);
                 }
 
@@ -274,9 +330,9 @@ const ProviderProfile = () => {
                             
                             <div className="profile-info">
 
-                                <textarea rows="8" cols="48" type="text" defaultValue={userInfo} readOnly={infoEdit}/>
-                                {infoEdit && <FontAwesomeIcon icon={faPen} className="editImage" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
-                                {!infoEdit && <FontAwesomeIcon icon={faCheck} id="check" onClick={(e) => {setInfoEdit(!infoEdit)}}/>}
+                                <textarea id="info-text" rows="8" cols="48" type="text" defaultValue={userInfo} readOnly={infoEdit}/>
+                                {infoEdit && <FontAwesomeIcon icon={faPen} className="editImage" onClick={(e) => {handleInfoClick();}}/>}
+                                {!infoEdit && <FontAwesomeIcon icon={faCheck} id="check" onClick={(e) => {handleInfoClick();}}/>}
                             
                             </div>
                         
@@ -397,6 +453,20 @@ const ProviderProfile = () => {
                         
                         {/* <p>{ newLanguage }</p> */}
                     </div>}
+
+                    {check && <div className="languages-list">
+                        {newLanguage.map(lang=> (
+                            <div key={lang} className="language-item"> 
+                                <img src={langImage} className="languageImage" alt="language symbol" />
+                                <p>{lang}</p>
+                            </div>
+                        ))}
+                        
+                        {/* <p>{ newLanguage }</p> */}
+                    </div>}
+
+
+
 
                 </div>
                 <div className="education-container">
