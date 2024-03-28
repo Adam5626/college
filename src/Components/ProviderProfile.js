@@ -45,6 +45,12 @@ const ProviderProfile = () => {
 
     const [addService, setAddService] = useState(false);
 
+    const [services, setServices] = useState([]);
+    const [editServiceName, setEditServiceName] = useState("");
+    const [editServicePrice, setEditServicePrice] = useState("");
+    const [editServiceTime, setEditServiceTime] = useState("");
+    const [editServiceDescription, setEditServiceDescription] = useState("");
+
     const handleImageClick = (event) => {
         inputRef.current.click();
     }
@@ -256,6 +262,8 @@ const ProviderProfile = () => {
                     setMessage(doc.data()["message"]);
                     setEducation(doc.data()["education"]);
                     setNewLanguage(doc.data()["languages"]);
+                    setServices(doc.data()["services"]);
+                    console.log("Services : ",doc.data()["services"] || []);
                     setLoading(false);
                 }
 
@@ -263,10 +271,87 @@ const ProviderProfile = () => {
         })
     }
 
+    const handleAddService = async ()=>{
+
+        if(addService === true)
+        {
+            setLoading(true);
+            const newService = {
+                "title" : editServiceName,
+                "price" : editServicePrice,
+                "time" : editServiceTime,
+                "description" : editServiceDescription
+            };
+
+            //setServices(oldServices => [...oldServices, newService]);
+
+            var services_ = services;
+            services_.push(newService);
+            setServices(services_);
+
+            const providersCollection = collection(db, "provider_profiles");
+
+            var docId;
+            var reqDoc;
+
+            await getDocs(providersCollection).then((docs)=>{
+                docs.forEach((doc)=>{
+                    if(doc.data()["email"] === user_context.state_["email"])
+                    {
+                        docId = doc.id;
+                        reqDoc = doc;
+                    }
+                })
+            });
+
+            var data = reqDoc.data();
+            data["services"] = services_;
+            await setDoc(doc(db, "provider_profiles", docId), data);
+            setLoading(false);
+
+
+        }
+        setAddService(!addService);
+    }
+
+    const deleteService = async (index)=>{
+        setLoading(true);
+        var services_ = services;
+        services_.splice(index,1);
+        setServices(services_);
+
+        const providersCollection = collection(db, "provider_profiles");
+
+        var docId;
+        var reqDoc;
+
+        await getDocs(providersCollection).then((docs)=>{
+            docs.forEach((doc)=>{
+                if(doc.data()["email"] === user_context.state_["email"])
+                {
+                    docId = doc.id;
+                    reqDoc = doc;
+                }
+            })
+        });
+
+        var data = reqDoc.data();
+        data["services"] = services_;
+        await setDoc(doc(db, "provider_profiles", docId), data);
+        setLoading(false);
+
+        
+    }
+
 
     useEffect(()=>{
         get_provider_data();
-    }, [])
+    }, []);
+
+    // useEffect(()=>{
+    //     console.log("Services Updated");
+    //     console.log("State Services : ", services);
+    // }, [services]);
 
     if(loading === true)
     {
@@ -344,81 +429,50 @@ const ProviderProfile = () => {
                     {addService && <div className="add-service">
                             <div id="add-title">
                                 <label>Title:</label>
-                                <input placeholder="Service title" type="text" />
+                                <input onChange={(e)=>{setEditServiceName(e.target.value);}} placeholder="Service title" type="text" />
                             </div>
                             
                             <div className="money-per-time">
                                 <label>Rate:</label>
-                                <input placeholder="paisa" type="number"/>
+                                <input onChange={(e)=>{setEditServicePrice(e.target.value)}} placeholder="Dollars" type="number"/>
 
                                 <label>Time:</label>
-                                <input placeholder="minutes" type="number"/>
+                                <input onChange={(e)=>{setEditServiceTime(e.target.value);}} placeholder="minutes" type="number"/>
                             </div>
                             
                             <label>Description:</label>
-                            <textarea placeholder="Service Description" rows={10}></textarea>
+                            <textarea onChange={(e)=>{(setEditServiceDescription(e.target.value));}} placeholder="Service Description" rows={10}></textarea>
                         
-                            <button onClick={()=>{setAddService(!addService)}}> Add service </button>
+                            <button onClick={()=>{handleAddService();}}> Add service </button>
                         
                         </div>}
 
-                    <div className="service-card">
-                        <div className="service-title">
-                            <p> English Tutoring </p>
-                            <FontAwesomeIcon icon={faTimesCircle} id="remove-service"/>
-                        </div>
-                        <div className="service-charge">
-                            <p>100$ </p>
-                            <p>/ 60 min</p>
-                        </div>
-                        <div className="service-info">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="service-card">
-                        <div className="service-title">
-                            <p> Punjabi Tutoring </p>
-                            <FontAwesomeIcon icon={faTimesCircle} id="remove-service"/>
-                        </div>
-                        <div className="service-charge">
-                            <p>100$ </p>
-                            <p>/ 60 min</p>
-                        </div>
-                        <div className="service-info">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="service-card">
-                    <div className="service-title">
-                        <p> Persian Tutoring </p>
-                        <FontAwesomeIcon icon={faTimesCircle} id="remove-service"/>
-                    </div>
-                    <div className="service-charge">
-                        <p>100$ </p>
-                        <p>/ 60 min</p>
-                    </div>
-                    <div className="service-info">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-                    </div>
+                    {
+                       services &&  services.map((n,i)=>{
+
+                            return (
+                                <>
+                                <div className="service-card">
+                                <div className="service-title">
+                                    <p> {n.title} </p>
+                                    <FontAwesomeIcon onClick={()=>{deleteService(i);}} icon={faTimesCircle} id="remove-service"/>
+                                </div>
+                                <div className="service-charge">
+                                    <p>{n.price} $</p>
+                                    <p>/ {n.time} minutes</p>
+                                </div>
+                                <div className="service-info">
+                                    <p>
+                                    {n.description}
+                                    </p>
+                                </div>
+                                </div>
+                                </>
+                            )
+
+                        })
+                    }
+
                 </div>
 
                 <div className="message-provider">
